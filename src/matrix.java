@@ -9,10 +9,23 @@ public class matrix {
         int[][] matrix1 = readM();
         System.out.println("Ввод второй матрицы");
         int[][] matrix2 = readM();
-        if (matrix1[1].length !=matrix2.length) {
+        if (matrix1[1].length != matrix2.length) {
             System.out.println("Ошибка - число столбцов первой матрицы должно быть равно числу строк второй");
         } else {
-            multiplication(matrix1, matrix2);
+            int[][] result=multiplication(matrix1, matrix2);
+            System.out.print("Результат умножения матриц: [");
+            for (int i=0;i<result.length;i++)
+            {
+                System.out.print("[");
+                for (int j=0;j<result[1].length;j++)
+                {
+                    System.out.print(result[i][j]);
+                    if (j+1<result[1].length) System.out.print(", ");
+                }
+                System.out.print("]");
+                if (i+1<result.length) System.out.print(", ");
+            }
+            System.out.println("]");
         }
     }
 
@@ -27,10 +40,10 @@ public class matrix {
             return res;
         } else {
             int[][] res = new int[h1][w2];
-            for (int i = 1; i < h1; i++) {
-                for (int j = 1; j < w2; j++) {
+            for (int i = 0; i < h1; i++) {
+                for (int j = 0; j < w2; j++) {
                     res[i][j] = 0;
-                    for (int k = 1; k < w1; k++) {
+                    for (int k = 0; k < w1; k++) {
                         res[i][j] += matrix1[i][k] * matrix2[k][j];
                     }
                 }
@@ -47,9 +60,9 @@ public class matrix {
         System.out.print("Введите количество столбцов матрицы: ");
         int w = in.nextInt();
         int[][] matrix = new int[h][w];
-        for (int i=1;i<h;i++) {
-            for (int j=1;j<w;j++) {
-                System.out.println("Введите элемент ["+i+"], ["+j+"]:");
+        for (int i=0;i<h;i++) {
+            for (int j=0;j<w;j++) {
+                System.out.print("Введите элемент [" + (i+1) + "], [" + (j+1) + "]: ");
                 matrix[i][j]=in.nextInt();
             }
         }
