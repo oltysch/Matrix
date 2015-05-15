@@ -5,28 +5,32 @@ import java.util.Scanner;
 public class matrix {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Ввод первой матрицы");
-        int[][] matrix1 = readM();
-        System.out.println("Ввод второй матрицы");
-        int[][] matrix2 = readM();
-        if (matrix1[1].length != matrix2.length) {
-            System.out.println("Ошибка - число столбцов первой матрицы должно быть равно числу строк второй");
-        } else {
-            int[][] result=multiplication(matrix1, matrix2);
-            System.out.print("Результат умножения матриц: [");
-            for (int i=0;i<result.length;i++)
-            {
-                System.out.print("[");
-                for (int j=0;j<result[1].length;j++)
-                {
-                    System.out.print(result[i][j]);
-                    if (j+1<result[1].length) System.out.print(", ");
+        String com = "";
+        while (!((com.equals("нет")) || (com.equals("Нет")) || (com.equals("n")))) {
+            System.out.println("Ввод первой матрицы");
+            int[][] matrix1 = readM();
+            System.out.println("Ввод второй матрицы");
+            int[][] matrix2 = readM();
+            if (matrix1[1].length != matrix2.length) {
+                System.out.println("Ошибка - число столбцов первой матрицы должно быть равно числу строк второй");
+            } else {
+                int[][] result = multiplication(matrix1, matrix2);
+                System.out.print("Результат умножения матриц: [");
+                for (int i = 0; i < result.length; i++) {
+                    System.out.print("[");
+                    for (int j = 0; j < result[1].length; j++) {
+                        System.out.print(result[i][j]);
+                        if (j + 1 < result[1].length) System.out.print(", ");
+                    }
+                    System.out.print("]");
+                    if (i + 1 < result.length) System.out.print(", ");
                 }
-                System.out.print("]");
-                if (i+1<result.length) System.out.print(", ");
+                System.out.println("]");
             }
-            System.out.println("]");
+            System.out.println("Хотите продолжить? (Да/Нет): ");
+            com = reader.readLine();
         }
+
     }
 
 //    функция умножения матриц
