@@ -15,16 +15,9 @@ public class Runner {
 
     public static void main(String[] args) {
         useFactory();
-//        cycle enter
-//        String command = "";
-//        while (!((command.equals("нет")) || (command.equals("Нет")) || (command.equals("n"))
-//                || (command.equals("N")) || (command.equals("no")) || (command.equals("No")))) {
-//            useFactoryAndConsole();
-//            System.out.println("Хотите продолжить? (Да/Нет): ");
-//            command = sc.next();
-//        }
     }
 
+//    uses only factory
     public static void useFactory() {
         int rows1 = 5;
         int colls1 = 7;
@@ -35,6 +28,7 @@ public class Runner {
         System.out.println("Резельтат умножения: \n" + matrix1.getMatrixNormal() + "\n    *    \n" + matrix2.getMatrixNormal() + "\n    =    \n" + matrix3.getMatrixNormal());
     }
 
+//    uses console for rows and colls count and factory for create matrix
     public static void useFactoryAndConsole() {
         int rows1;
         int colls1;
@@ -62,7 +56,7 @@ public class Runner {
         System.out.println("Резельтат умножения: " + matrix3.getMatrixNormal());
     }
 
-    //    function of request the enter a Matrix (in a console)
+    //    function of request the enter a Matrix (only in console)
     public static Matrix inputMatrix() {
         System.out.print("Введите количество строк матрицы: ");
         int rows = sc.nextInt();

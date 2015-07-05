@@ -10,24 +10,6 @@ import java.util.Random;
 public class Matrix {
     private int[][] values;
 
-    //    matrix initialization
-    public Matrix(int[][] values) {
-        this.values = values;
-    }
-
-    public Matrix(int rows, int colls) {
-        this.values = new int[rows][colls];
-    }
-
-    public void setMatrix(int[][] values) {
-        this.values = values;
-    }
-
-    //    function assigns the single element of the Matrix
-    public void setElement(int rows, int colls, int value) {
-        this.values[rows][colls] = value;
-    }
-
     //    function returns values of Matrix in String
     public String getMatrixInline() {
         String result = "[";
@@ -53,8 +35,25 @@ public class Matrix {
             }
             if (i + 1 < values.length) result.append("\n");
         }
-//        result.append("\n");
         return result.toString();
+    }
+
+    //    matrix initialization
+    public Matrix(int[][] values) {
+        this.values = values;
+    }
+
+    public Matrix(int rows, int colls) {
+        this.values = new int[rows][colls];
+    }
+
+    public void setMatrix(int[][] values) {
+        this.values = values;
+    }
+
+    //    function assigns the single element of the Matrix
+    public void setElement(int rows, int colls, int value) {
+        this.values[rows][colls] = value;
     }
 
     public int getRows() {
