@@ -10,7 +10,12 @@ import java.util.Random;
 public class Matrix {
     private int[][] values;
 
-    //    function returns values of Matrix in String
+    //    matrix initialization
+    public Matrix(int[][] values) {
+        this.values = values;
+    }
+
+    //    function returns values of Matrix in one String
     public String getMatrixInline() {
         String result = "[";
         for (int i = 0; i < values.length; i++) {
@@ -26,6 +31,7 @@ public class Matrix {
         return result;
     }
 
+    //    returns matrix values in rows and colls view
     public String getMatrixNormal() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
@@ -36,11 +42,6 @@ public class Matrix {
             if (i + 1 < values.length) result.append("\n");
         }
         return result.toString();
-    }
-
-    //    matrix initialization
-    public Matrix(int[][] values) {
-        this.values = values;
     }
 
     public Matrix(int rows, int colls) {

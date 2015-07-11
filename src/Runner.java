@@ -17,7 +17,7 @@ public class Runner {
         useFactory();
     }
 
-//    uses only factory
+    //    uses only factory
     public static void useFactory() {
         int rows1 = 5;
         int colls1 = 7;
@@ -28,7 +28,7 @@ public class Runner {
         System.out.println("Резельтат умножения: \n" + matrix1.getMatrixNormal() + "\n    *    \n" + matrix2.getMatrixNormal() + "\n    =    \n" + matrix3.getMatrixNormal());
     }
 
-//    uses console for rows and colls count and factory for create matrix
+    //    uses console for rows and colls count and factory for create matrix
     public static void useFactoryAndConsole() {
         int rows1;
         int colls1;
