@@ -3,26 +3,39 @@
  * main class, wokrs with user inputs and returns replies
  */
 
-import matrix.modules.Matrix;
+import modules.Matrix;
+import modules.MatrixFactory;
 
 import java.util.Scanner;
 
-import static matrix.modules.MatrixCalculations.multiplication;
+import static modules.MatrixCalculations.multiplication;
 
-public class Matrices {
+public class Runner {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String command = "";
-        while (!((command.equals("нет")) || (command.equals("Нет")) || (command.equals("n"))
-                || (command.equals("N")) || (command.equals("no")) || (command.equals("No")))) {
-            useMatrixFactory();
-            System.out.println("Хотите продолжить? (Да/Нет): ");
-            command = sc.next();
-        }
+        useFactory();
+//        cycle enter
+//        String command = "";
+//        while (!((command.equals("нет")) || (command.equals("Нет")) || (command.equals("n"))
+//                || (command.equals("N")) || (command.equals("no")) || (command.equals("No")))) {
+//            useFactoryAndConsole();
+//            System.out.println("Хотите продолжить? (Да/Нет): ");
+//            command = sc.next();
+//        }
     }
 
-    public static void useMatrixFactory() {
+    public static void useFactory() {
+        int rows1 = 5;
+        int colls1 = 7;
+        int colls2 = 6;
+        Matrix matrix1 = MatrixFactory.create(rows1, colls1);
+        Matrix matrix2 = MatrixFactory.create(colls1, colls2);
+        Matrix matrix3 = multiplication(matrix1, matrix2);
+        System.out.println("Резельтат умножения: \n" + matrix1.getMatrixNormal() + "\n    *    \n" + matrix2.getMatrixNormal() + "\n    =    \n" + matrix3.getMatrixNormal());
+    }
+
+    public static void useFactoryAndConsole() {
         int rows1;
         int colls1;
         int colls2;
@@ -33,23 +46,23 @@ public class Matrices {
         System.out.println("Количество строк второй матрицы равно количеству строк первой.");
         System.out.print("Введите количество столбцов второй матрицы: ");
         colls2 = sc.nextInt();
-        Matrix matrix1 = Matrix.create(rows1, colls1);
-        Matrix matrix2 = Matrix.create(colls1, colls2);
+        Matrix matrix1 = MatrixFactory.create(rows1, colls1);
+        Matrix matrix2 = MatrixFactory.create(colls1, colls2);
         Matrix matrix3 = multiplication(matrix1, matrix2);
-        System.out.println("Резельтат умножения: " + matrix1.getMatrixString() + " * " + matrix2.getMatrixString() + " = " + matrix3.getMatrixString());
+        System.out.println("Резельтат умножения: " + matrix1.getMatrixNormal() + " * " + matrix2.getMatrixNormal() + " = " + matrix3.getMatrixNormal());
     }
 
-    //    console matrix request and multiplication
-    public static void consoleMatrixEnter() {
+    //    console Matrix request and multiplication
+    public static void useConsole() {
         System.out.println("Ввод первой матрицы");
         Matrix matrix1 = inputMatrix();
         System.out.println("Ввод второй матрицы");
         Matrix matrix2 = inputMatrix();
         Matrix matrix3 = multiplication(matrix1, matrix2);
-        System.out.println("Резельтат умножения: " + matrix3.getMatrixString());
+        System.out.println("Резельтат умножения: " + matrix3.getMatrixNormal());
     }
 
-    //    function of request the enter a matrix (in a console)
+    //    function of request the enter a Matrix (in a console)
     public static Matrix inputMatrix() {
         System.out.print("Введите количество строк матрицы: ");
         int rows = sc.nextInt();
